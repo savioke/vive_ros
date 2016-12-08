@@ -1,0 +1,8 @@
+<launch>
+    <arg name="rviz_launch_prefix" default=""/>
+    <arg name="rviz_config" default="$(find vive_ros)/config/vive.rviz"/>
+
+    <node pkg="rviz" name="$(anon vive_ros_rviz)" type="rviz" args="-d $(arg rviz_config)" 
+	required="true" launch-prefix="$(arg rviz_launch_prefix)"/>
+</launch>
+
