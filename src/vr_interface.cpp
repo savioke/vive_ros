@@ -70,7 +70,7 @@ bool VRInterface::Init()
   
   //~ pHMD_->ResetSeatedZeroPose();
   
-  UpdateCalibration();
+  //UpdateCalibration();
 
   return true;
 }
