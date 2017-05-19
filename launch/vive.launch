@@ -8,13 +8,17 @@
   <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env HOME)/libraries/openvr/lib/linux32:$(env HOME)/libraries/openvr/lib/linux64/:\$(env HOME)/.local/share/Steam/ubuntu12_32/steam-runtime/i386/lib/i386-linux-gnu:$(env HOME)/.local/share/Steam/ubuntu12_32/steam-runtime/amd64/lib/x86_64-linux-gnu:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/bin/linux32:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/bin/linux64:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/drivers/lighthouse/bin/linux32:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/drivers/lighthouse/bin/linux64:"/>
 -->
   <!-- For a 64bit system -->
-  <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env HOME)/libraries/openvr/lib/linux64:$(env HOME)/.local/share/Steam/ubuntu12_32/steam-runtime/amd64/lib/x86_64-linux-gnu:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/bin/linux64:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/drivers/lighthouse/bin/linux64"/>
+  <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env HOME)/libraries/openvr/lib/linux64:$(env HOME)/.local/share/Steam/ubuntu12_32/steam-runtime/amd64/lib/x86_64-linux-gnu:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/bin/linux64:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/drivers/lighthouse/bin/linux64:$(env HOME)/.local/share/Steam/steamapps/common/SteamVR/tools/bin/linux64"/>
 
-  <rosparam param="/vive/world_offset">[-3.768, 0.412, 2.467]</rosparam>
-  <rosparam param="/vive/world_yaw">-1.575</rosparam>
+  <!-- For parallelness with controller on the Relay -->
+  <rosparam param="/vive/world_offset">[1.079 , 0.880, 2.520]</rosparam>
+  <rosparam param="/vive/world_yaw">1.600</rosparam>
 
-   
-  <node pkg="tf2_ros" type="static_transform_publisher" name="world_map_broadcaster" args="-18.101 -1.743 0.076 0.0 0.0 1.0 -0.005 world map"/>
+  <!-- For parallelness with the world frame -->
+  <!-- <rosparam param="/vive/world_offset">[3.505 , 0.115, 1.559]</rosparam>
+  <rosparam param="/vive/world_yaw">-4.546</rosparam> -->
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_map_broadcaster" args="-18.101 -1.743 0.076 0.0 0.0 1.0 0.0 world map"/>
   
   <node name="vive_node" pkg="vive_ros" type="vive_node" output="screen" required="true"/>
 </launch>

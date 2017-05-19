@@ -94,7 +94,7 @@ Visualization Manager:
         camera_forward_rgb_optical_frame:
           Value: false
         controller1:
-          Value: false
+          Value: true
         controller2:
           Value: true
         forward_bumper_link:
@@ -124,7 +124,7 @@ Visualization Manager:
         lid_tilt_link:
           Value: false
         lighthouse1:
-          Value: false
+          Value: true
         lighthouse2:
           Value: true
         map:
